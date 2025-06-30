@@ -1,7 +1,7 @@
 "use client";
 import axios from 'axios';
 import Link from 'next/link';
-import React, { FormEvent, useEffect, useMemo, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 
 function Signup() {
     const [message,setMessage]=useState("");
@@ -17,7 +17,7 @@ function Signup() {
         e.preventDefault()
         
         const formData=new FormData(e.currentTarget)
-        axios.post("http://localhost:3000/signup",formData).then(resp=>{setMessage("تمام!");axios.post("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt",{jwt:resp.data.jwt}).then(res=>res)}).catch(err=>setMessage("في مشكلة"));
+        axios.post("http://localhost:3000/signup",formData).then(resp=>{setMessage("تمام!");axios.post("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt",{jwt:resp.data.jwt}).then(res=>res)}).catch(()=>setMessage("في مشكلة"));
    
       }
   return (

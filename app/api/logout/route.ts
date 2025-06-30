@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-export async function POST(req:Request){
+export async function POST(){
 
    if(!(await cookies()).get("jwtToken1")?.value){
     return new Response("Unauthorized",{

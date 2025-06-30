@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
-import { NextRequest } from "next/server";
+
 
 export async function POST(req:Request){
-    let jwtString= (await req.json()).jwt;
+    const jwtString= (await req.json()).jwt;
 
    
     return new Response("ok",{
@@ -13,8 +13,8 @@ export async function POST(req:Request){
         }
     })
 }
-export async function GET(req:Request){
-    let jwtString= (await cookies()).get("jwtToken1")?.value;
+export async function GET(){
+    const jwtString= (await cookies()).get("jwtToken1")?.value;
 
    
     return new Response(JSON.stringify({jwt:jwtString}),{

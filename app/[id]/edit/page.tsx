@@ -2,7 +2,7 @@
 import axios from 'axios'
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import React, { FormEvent, FormEventHandler, useEffect, useMemo, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 
 function Edit() {
     const [message,setMessage]=useState("");
@@ -34,7 +34,7 @@ function Edit() {
                 "Authorization":`Bearer ${jwt}`
             },
   
-        }).then(res=>setMessage("تمام!")).catch(err=>setMessage("في مشكلة"));
+        }).then(()=>setMessage("تمام!")).catch(()=>setMessage("في مشكلة"));
        
       }
     

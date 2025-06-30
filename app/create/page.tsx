@@ -1,7 +1,7 @@
 "use client";
 import axios from 'axios'
 import Link from 'next/link';
-import React, { FormEvent, FormEventHandler, useEffect, useMemo, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 
 function Create() {
   const [message, setMessage] = useState("");
@@ -31,7 +31,7 @@ function Create() {
         "Content-Type": "multipart/form-data",
         "Authorization": `Bearer ${jwt}`
       }
-    }).then(res => setMessage("تمام!")).catch(err => setMessage("في مشكلة"));
+    }).then(() => setMessage("تمام!")).catch(() => setMessage("في مشكلة"));
 
   }
   return (

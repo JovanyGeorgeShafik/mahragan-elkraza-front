@@ -53,7 +53,7 @@ function Design({design}:{design:DesignSchema}) {
         
         "Authorization":`Bearer ${jwt}`
       }
- }).then(res=>setMessage("تم التصويت")).catch(err=>setMessage("في مشكلة عند عمل تصويت"))}} className='bg-blue-300 m-2 text-white font-bold p-2 rounded-2xl' >صوت</button>
+ }).then(()=>setMessage("تم التصويت")).catch(()=>setMessage("في مشكلة عند عمل تصويت"))}} className='bg-blue-300 m-2 text-white font-bold p-2 rounded-2xl' >صوت</button>
 <p className='text-white font-bold '>التصويتات: {design.votes}</p>
 </>
  }
