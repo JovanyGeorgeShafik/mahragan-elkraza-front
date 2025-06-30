@@ -9,7 +9,7 @@ function Design({design}:{design:DesignSchema}) {
        const [role,setRole]=useState<string>("")
        const [message,setMessage]=useState<string>("")
          useEffect(()=>{
-          axios.get("http://localhost:3001/api/jwt").then(res=>{setJWT(res.data.jwt)
+          axios.get("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt").then(res=>{setJWT(res.data.jwt)
             ;
             if(res.data.jwt){
                axios.get("http://localhost:3000/role",{

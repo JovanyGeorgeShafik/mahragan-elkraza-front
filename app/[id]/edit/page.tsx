@@ -9,7 +9,7 @@ function Edit() {
     const [jwt,setJWT]=useState<string>("")
 
   useEffect(()=>{
-          axios.get("http://localhost:3001/api/jwt").then(res=>  {  if(!res.data.jwt){
+          axios.get("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt").then(res=>  {  if(!res.data.jwt){
           window.location.href="/login"
         }setJWT(res.data.jwt)
         axios.get("http://localhost:3000/role",{

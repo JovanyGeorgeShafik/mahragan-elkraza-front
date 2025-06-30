@@ -7,7 +7,7 @@ function Login() {
     const [message,setMessage]=useState("");
     
   useEffect(()=>{
-          axios.get("http://localhost:3001/api/jwt").then(res=>  {  if(res.data.jwt){
+          axios.get("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt").then(res=>  {  if(res.data.jwt){
           window.location.href="/"
         }})
           
@@ -16,7 +16,7 @@ function Login() {
       e.preventDefault()
         
         const formData=new FormData(e.currentTarget)
-      axios.post("http://localhost:3000/login",formData).then(resp=>{setMessage("تمام!");axios.post("http://localhost:3001/api/jwt",{jwt:resp.data.jwt}).then(res=>res)}).catch(err=>setMessage("في مشكلة"));
+      axios.post("http://localhost:3000/login",formData).then(resp=>{setMessage("تمام!");axios.post("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt",{jwt:resp.data.jwt}).then(res=>res)}).catch(err=>setMessage("في مشكلة"));
        
    
     }
