@@ -12,7 +12,7 @@ function Design({design}:{design:DesignSchema}) {
           axios.get("https://mahragan.leapcell.app/back/jwt").then(res=>{setJWT(res.data.jwt)
             ;
             if(res.data.jwt){
-               axios.get("mahragan.leapcell.app/api/role",{
+               axios.get((process.env.API??"https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/")+"role",{
               headers:{
                 "Authorization":`Bearer ${res.data.jwt}`
               }
@@ -27,7 +27,7 @@ function Design({design}:{design:DesignSchema}) {
     message&&
   <h3 className="text-center font-bold text-2xl text-white">{message}</h3>
   }
- <Image width={100000} height={100000} className='w-full' src={`https://mahragan.leapcell.app/api/${design['image_name']}`} alt={design['name']}>
+ <Image width={100000} height={100000} className='w-full' src={(process.env.API??"https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/")+design['image_name']} alt={design['name']}>
  </Image> 
  <h3 className="text-white font-bold text-2xl">{design['name']}</h3>
   <p className="text-gray-200">{design['description']}</p>
@@ -39,7 +39,7 @@ function Design({design}:{design:DesignSchema}) {
  {
   role=="admin"
   &&
-  <><button onClick={(e)=>{e.preventDefault(),axios.delete(`https://mahragan.leapcell.app/api/${design.id}`,{
+  <><button onClick={(e)=>{e.preventDefault(),axios.delete((process.env.API??"https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/")+design.id,{
   headers:{
     
                 "Authorization":`Bearer ${jwt}`
@@ -48,7 +48,7 @@ function Design({design}:{design:DesignSchema}) {
     <Link className='bg-blue-300 m-2 text-white font-bold p-2 rounded-2xl'  href={`${design.id}/edit`}>عدل</Link>
     </>
  } 
- <button onClick={(e)=>{e.preventDefault(); axios.put(`https://mahragan.leapcell.app/api/vote/${design.id}`,null,{
+ <button onClick={(e)=>{e.preventDefault(); axios.put((process.env.API??"https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/")+design.id,null,{
      headers:{
         
         "Authorization":`Bearer ${jwt}`

@@ -9,10 +9,10 @@ export default function Home() {
   const [jwt,setJWT]=useState<string>("")
   const [role,setRole]=useState<string>("")
   useEffect(()=>{
-    axios.get("https://mahragan.leapcell.app/api").then(res=>setData(res.data.designs)).catch(err=>err)
+    axios.get(process.env.API??"https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/").then(res=>setData(res.data.designs)).catch(err=>err)
     axios.get("https://mahragan.leapcell.app/back/jwt").then(res=>{setJWT(res.data.jwt);if(res.data.jwt){
       
-                    axios.get("https://mahragan.leapcell.app/api/role",{
+                    axios.get((process.env.API??"https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/")+"role",{
               headers:{
                 "Authorization":`Bearer ${res.data.jwt}`
               }

@@ -17,7 +17,7 @@ function Signup() {
         e.preventDefault()
         
         const formData=new FormData(e.currentTarget)
-        axios.post("https://mahragan.leapcell.app/api/signup",formData).then(resp=>{setMessage("تمام!");axios.post("https://mahragan.leapcell.app/back/jwt",{jwt:resp.data.jwt}).then(res=>res)}).catch(()=>setMessage("في مشكلة"));
+        axios.post((process.env.API??"https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/")+"signup",formData).then(resp=>{setMessage("تمام!");axios.post("https://mahragan.leapcell.app/back/jwt",{jwt:resp.data.jwt}).then(res=>res)}).catch(()=>setMessage("في مشكلة"));
    
       }
   return (
