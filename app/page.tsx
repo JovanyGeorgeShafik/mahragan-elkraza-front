@@ -1,4 +1,5 @@
 "use client";
+
 import {useEffect, useState} from "react";
 import Design from "./components/Design";
 import axios from "axios";
@@ -8,10 +9,10 @@ export default function Home() {
   const [jwt,setJWT]=useState<string>("")
   const [role,setRole]=useState<string>("")
   useEffect(()=>{
-    axios.get("http:///localhost:3000/").then(res=>setData(res.data.designs)).catch(err=>err)
-    axios.get("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt").then(res=>{setJWT(res.data.jwt);if(res.data.jwt){
+    axios.get("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/").then(res=>setData(res.data.designs)).catch(err=>err)
+    axios.get("https://mahragan-elkraza-front-jovanygeorgeshafik5590-yz6g7auy.leapcell.dev/api/jwt").then(res=>{setJWT(res.data.jwt);if(res.data.jwt){
       
-                    axios.get("http://localhost:3000/role",{
+                    axios.get("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/role",{
               headers:{
                 "Authorization":`Bearer ${res.data.jwt}`
               }

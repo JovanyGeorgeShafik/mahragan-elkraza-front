@@ -8,7 +8,7 @@ function Signup() {
     
     
      useEffect(()=>{
-          axios.get("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt").then(res=>  {  if(res.data.jwt){
+          axios.get("https://mahragan-elkraza-front-jovanygeorgeshafik5590-yz6g7auy.leapcell.dev/api/jwt").then(res=>  {  if(res.data.jwt){
           window.location.href="/"
         }})
           
@@ -17,7 +17,7 @@ function Signup() {
         e.preventDefault()
         
         const formData=new FormData(e.currentTarget)
-        axios.post("http://localhost:3000/signup",formData).then(resp=>{setMessage("تمام!");axios.post("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt",{jwt:resp.data.jwt}).then(res=>res)}).catch(()=>setMessage("في مشكلة"));
+        axios.post("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/signup",formData).then(resp=>{setMessage("تمام!");axios.post("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt",{jwt:resp.data.jwt}).then(res=>res)}).catch(()=>setMessage("في مشكلة"));
    
       }
   return (

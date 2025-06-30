@@ -7,11 +7,11 @@ function Create() {
   const [message, setMessage] = useState("");
   const [jwt, setJWT] = useState<string>("")
   useEffect(() => {
-    axios.get("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/api/jwt").then(res => {
+    axios.get("https://mahragan-elkraza-front-jovanygeorgeshafik5590-yz6g7auy.leapcell.dev/api/jwt").then(res => {
       if (!res.data.jwt) {
         window.location.href = "/login"
       } setJWT(res.data.jwt)
-        axios.get("http://localhost:3000/role",{
+        axios.get("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/role",{
               headers:{
                 "Authorization":`Bearer ${res.data.jwt}`
               }
@@ -26,7 +26,7 @@ function Create() {
   function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
-    axios.post("http://localhost:3000", formData, {
+    axios.post("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
         "Authorization": `Bearer ${jwt}`
