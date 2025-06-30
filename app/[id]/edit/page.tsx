@@ -9,10 +9,10 @@ function Edit() {
     const [jwt,setJWT]=useState<string>("")
 
   useEffect(()=>{
-          axios.get("https://mahragan-elkraza-front-jovanygeorgeshafik5590-yz6g7auy.leapcell.dev/api/jwt").then(res=>  {  if(!res.data.jwt){
+          axios.get("https://mahragan.leapcell.app/back/jwt").then(res=>  {  if(!res.data.jwt){
           window.location.href="/login"
         }setJWT(res.data.jwt)
-        axios.get("https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/role",{
+        axios.get("https://mahragan.leapcell.app/api/role",{
               headers:{
                 "Authorization":`Bearer ${res.data.jwt}`
               }
@@ -28,7 +28,7 @@ function Edit() {
     function submit(e:FormEvent<HTMLFormElement>){
         e.preventDefault()
         const formData=new FormData(e.currentTarget)
-        axios.put(`https://mahragan-elkraza-jovanygeorgeshafik5590-ldb3030b.leapcell.dev/${params['id']}`,formData,{
+        axios.put(`https://mahragan.leapcell.app/api/${params['id']}`,formData,{
             headers:{
                 "Content-Type":"multipart/form-data",
                 "Authorization":`Bearer ${jwt}`
